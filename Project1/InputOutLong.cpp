@@ -1,4 +1,5 @@
-#include "LongInOut.h"
+#include "InputOutLong.h"
+
 void input(NUM* top)
 {
 	NUM* p, * pr;
@@ -38,6 +39,7 @@ void input(NUM* top)
 	if (sign == 1)
 		top->a = top->a * -1;
 }
+
 void output(NUM* top)
 {
 	NUM* p;

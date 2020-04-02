@@ -18,12 +18,15 @@
     <ClCompile Include="Source.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="LongInOut.cpp">
+    <ClCompile Include="InputOutLong.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="LongInOut.h">
+    <ClInclude Include="InputOutLong.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="NUM.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

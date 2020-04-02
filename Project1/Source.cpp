@@ -1,12 +1,9 @@
 #include <iostream>
 #include <string>
-#include "LongInOut.h"
+#include "NUM.h"
+#include "InputOutLong.h"
 using namespace std;
-struct NUM
-{
-	NUM* next, * prev;
-	short int a;
-};
+
 
 int main()
 {
@@ -33,4 +30,5 @@ int main()
 	
 
 }
+
 
