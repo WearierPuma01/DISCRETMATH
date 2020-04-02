@@ -124,7 +124,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="InputOutLong.cpp" />
+    <ClCompile Include="N.cpp" />
+    <ClCompile Include="P.cpp" />
+    <ClCompile Include="Q.cpp" />
     <ClCompile Include="Source.cpp" />
+    <ClCompile Include="Z.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="InputOutLong.h" />
