@@ -1,12 +1,36 @@
 #include <iostream>
+#include <string>
+#include "LongInOut.h"
 using namespace std;
-
-void main()
+struct NUM
 {
-	int i;
-	char* string1;
-	cin >> string1;
+	NUM* next, * prev;
+	short int a;
+};
+
+int main()
+{
+	setlocale(LC_ALL, "ru");
+	cout << "===============Выберите модуль=======================" << "\n"
+		<< "1. Натуральные числа с нулем."
+		<< "2. Целые числа."
+		<< "3. Рациональные числа (дроби)."
+		<< "4. Многочлен с рациональными коэфицентами."
+		<< "=====================================================" << "\n";
+	int choose;
+	cin >> choose;
 	cout << "\n";
-	for (i = 0; i < strlen(string1); i++)
-		cout << string1[i] << "\n";
+	switch (choose)
+	{
+	case 1:
+		NUM * N1;
+		N1 = new NUM;
+		
+		input(N1);
+		output(N1);
+	}
+
+	
+
 }
+
