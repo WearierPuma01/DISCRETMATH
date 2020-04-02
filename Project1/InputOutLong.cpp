@@ -1,8 +1,8 @@
 #include "InputOutLong.h"
 
-void input(NUM* top)
+void input(NUM* top) //Функция ввода длинного числа с клавиатуры
 {
-	NUM* p, * pr;
+	NUM* p, * pr; //Указатели на предыдущий и текущий элемент 
 	bool sign = 0;
 	int i;
 	string str, s;
