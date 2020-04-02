@@ -20,11 +20,12 @@ int main()
 	switch (choose)
 	{
 	case 1:
-		NUM * N1;
+		/*NUM * N1;
 		N1 = new NUM;
 		
 		input(N1);
-		output(N1);
+		output(N1);*/
+		break;
 	}
 
 	
