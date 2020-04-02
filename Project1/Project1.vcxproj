@@ -132,7 +132,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="InputOutLong.h" />
+    <ClInclude Include="N.h" />
     <ClInclude Include="NUM.h" />
+    <ClInclude Include="P.h" />
+    <ClInclude Include="Q.h" />
+    <ClInclude Include="Z.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
