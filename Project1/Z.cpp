@@ -1,1 +1,29 @@
-в
+#include<iostream>
+#include <stdio.h>
+#include "NUM.h"
+int getSign(NUM numb)
+ /*getSign
+ Функция для определения положительности числа. Возвращает: 2 - число положительное,
+ 0 - равное нулю, 1 - отрицательное, -1 - ошибка
+ Параметры:
+ 1) numb - целое число
+ Функция возвращает результат типа - int*/
+{
+	int check = numb.b;
+
+	if (numb.A)
+	{
+		for (int i = 0; i < numb.n && check; ++i)
+			check = *(numb.A + i) == 0;
+		if (check)
+			check = 0;
+		else
+			if (numb.b == 1)
+				check = 1;
+			else
+				check = 2;
+	}
+	else
+		check = -1;
+	return check;
+}
