@@ -7,8 +7,12 @@ using namespace std;
 int main()
 {
 	int x, y;
-	cin >> x >> y;
+	cout<<"¬ведите первое число:";
+	cin >> x;
+	cout << "¬ведите второе число:";
+	cin >> y;
+
 	int arr[] = { x , y };
 	int result = accumulate(begin(arr), end(arr), 0);
-	cout << result << endl;
+	cout <<"—умма двух целых чисел = "<< result << endl;
 }
