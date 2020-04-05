@@ -127,8 +127,8 @@
     <ClCompile Include="N.cpp" />
     <ClCompile Include="P.cpp" />
     <ClCompile Include="Q.cpp" />
+    <ClCompile Include="SIZE.cpp" />
     <ClCompile Include="Source.cpp" />
-    <ClCompile Include="Z.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="InputOutLong.h" />
@@ -136,6 +136,7 @@
     <ClInclude Include="NUM.h" />
     <ClInclude Include="P.h" />
     <ClInclude Include="Q.h" />
+    <ClInclude Include="SIZE.h" />
     <ClInclude Include="Z.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

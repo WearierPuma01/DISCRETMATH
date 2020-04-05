@@ -4,11 +4,11 @@ void input(NUM* top) //‘ункци€ ввода длинного числа с клавиатуры
 {
 	NUM* p, * pr; //”казатели на предыдущий и текущий элемент 
 	bool sign = 0; // «нак	
-	int i;
+	unsigned int i;
 	string str, s; // str - строка с числом , s - в роли каждого символа
-	cout << "¬ведите число: ";
+	//cout << "¬ведите число: ";
 	cin >> str;
-	cout << "\n";
+	//cout << "\n";
 	top->prev = NULL;
 	top->next = NULL;
 	p = top;

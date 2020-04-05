@@ -1,60 +1,30 @@
-include <iostream>
-#include <string>
-#include "NUM.h"
-#include "InputOutLong.h"
-using namespace std;
-int COM_NN_D(NUM a, NUM b)
+#include "N.h"
+
+
+int COM_NN_D(NUM *N1, NUM *N2)
 {
-	if (a.size > b.size)
-		return 2;
-	else if (b.size > a.size)
+	NUM* p1,*p2;
+	p1 = N1;
+	p2 = N2;
+	if (size(N1) > size(N2)) //Проверка на разность длинн чисел
 		return 1;
-	else
-	{
-		for (int i = a.size - 1; i >= 0; i--)
-		{
-			if (a.k[i] > b.k[i])
-				return 2;
-			else if (b.k[i] > a.k[i])
-				return 1;
-		}
-	}
-	return 0;
-}
-bool NZER_N_B(NUM a)
-{
-	if (a.k[0] == 0 && a.size == 1) 
-	{
-		return false;
-	}
-	return true;
-}
-NUM ADD_1N_N(NUM a)
-{
-	int c = 1;
-	NUM result;
-	result = a;
-	if (result.k[0] != 9)
-	{
-		result.k[0]++;
-	}
-	else
-	{
-		while (c != result.size && result.k[c] == 9) 
-		{
-			result.k[c] = 0;
-			c++;
-		}
-		if (c == result.size)
-		{
-			result.k = resize(result.k, result.size + 1, result.size);
-			result.size++;
-			result.k[result.size - 1] = 1;
-		}
+	else 
+		if (size(N1) < size(N2))  //Проверка на разность длинн чисел
+			return 2;
 		else
-		{
-			result.k[k]++;
-		}
-	}
-	return result;
+			while (true) // Поразрядное сравнение
+			{
+				if (p1->a > p2->a)
+					return 1;
+				if (p1->a < p2->a)
+					return 2;
+				if (p1->next == NULL)
+					break;
+				else
+				{
+					p1 = p1->next;
+					p2 = p2->next;
+				}	
+			}
+	return 0; // Возврат нуля в случае одинаковых чисел
 }
