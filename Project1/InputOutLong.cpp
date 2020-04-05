@@ -44,7 +44,7 @@ void output(NUM* top) //Функция вывода числа на экран
 {
 	NUM* p;
 	p = top;
-	cout << "Число: ";
+	//cout << "Число: ";
 	while (true)
 	{
 		cout << p->a;
@@ -53,5 +53,5 @@ void output(NUM* top) //Функция вывода числа на экран
 		else
 			p = p->next;
 	}
-	cout << "\n";
+	//cout << "\n";
 }

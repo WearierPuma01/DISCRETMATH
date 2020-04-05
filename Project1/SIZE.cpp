@@ -1,6 +1,6 @@
 #include "SIZE.h"
-
-int size(NUM* N)
+//Файл с функциями работающими с размерностью числа.
+int size(NUM* N) //Подсчет количества разрядов в числе
 {
 	int size=0;
 	NUM* p;
@@ -13,5 +13,20 @@ int size(NUM* N)
 		else
 			p = p->next;
 	}
-	return size;
+	return size; //Возврат количества разрядов в числе.
+}
+
+NUM* end_num(NUM* N) //Вводится указатель на первый разряд, возвращает указатель на последний
+{
+	NUM* end;
+	end = N;
+	while (true)
+	{
+		
+		if (end->next == NULL)
+			break;
+		else
+			end = end->next;
+	}
+	return end; //Возврат указателя на последний разряд.
 }

@@ -8,6 +8,9 @@ using namespace std;
 
 int main()
 {
+	bool b;
+	short int a;
+	NUM* N1, * N2;
 	while (true)
 	{
 		setlocale(LC_ALL, "ru");
@@ -26,15 +29,14 @@ int main()
 			cout << "===============Выберите функцию======================" << "\n"
 				<< "1. Сравнение натуральных числел." << "\n"
 				<< "2. Проверка на 0." << "\n"
-				<< "3. Рациональные числа (дроби)." << "\n"
+				<< "3. Добавление 1 к натуральному числу." << "\n"
 				<< "4. Многочлен с рациональными коэфицентами." << "\n"
 				<< "=====================================================" << "\n";
 			cin >> choose2;
 			switch (choose2)
 			{
 			case 1:
-				short int a;
-				NUM* N1, * N2;
+				
 				N1 = new NUM;
 				N2 = new NUM;
 				cout << "Введите число 1:" << "\t";
@@ -58,7 +60,27 @@ int main()
 				}		
 				break;
 			case 2:
-
+				N1 = new NUM;
+				cout << "Введите число 1:" << "\t";
+				input(N1);
+				cout << "\n";
+				b = NZER_N_B(N1);
+				if (b == 1)
+					cout << "Число не равно 0." << "\n";
+				else
+					cout << "Число рано 0." << "\n";
+				break;
+			case 3:
+				N1 = new NUM;
+				cout << "Введите число 1:" << "\t";
+				input(N1);
+				cout << "\n";
+				N1 = ADD_1N_N(N1);
+				cout << "Результат:" << "\t";
+				output(N1);
+				cout << "\n";
+				break;
+			case 4:
 
 			}
 			/*NUM * N1;
