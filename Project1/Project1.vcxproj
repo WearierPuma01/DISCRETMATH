@@ -123,6 +123,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Z.cpp POZ_ZZ_D.cpp" />
     <ClCompile Include="InputOutLong.cpp" />
     <ClCompile Include="N.cpp" />
     <ClCompile Include="P.cpp" />
