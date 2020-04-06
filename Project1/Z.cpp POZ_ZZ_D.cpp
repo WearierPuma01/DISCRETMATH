@@ -1,4 +1,4 @@
-#include "N.h"
+#include "Z.h"
 
 //Сумма двух целых чисел
   int ADD_ZZ_Z(NUM* N1, NUM* N2)
