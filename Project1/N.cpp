@@ -240,3 +240,7 @@ NUM* MUL_Nk_N(NUM* N, long int a)
 	return N;
 }
 
+NUM* MUL_NN_N(NUM* N1, NUM* N2)
+{
+
+}
