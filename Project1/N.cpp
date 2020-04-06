@@ -240,12 +240,29 @@ NUM* MUL_Nk_N(NUM* N, long int a)
 		p->next->a = 0;
 		p = p->next;
 	}
+	while (p->a == 0)
+	{
+		if (p->next == NULL)
+			break;
+		else
+			p = p->next;
+		delete p->prev;
+		p->prev = NULL;
+	}
 	return Np;
 }
 
-NUM* MUL_NN_N(NUM* N1, NUM* N2, NUM *N3)
+NUM* MUL_NN_N(NUM* N1, NUM* N2)
 {
-	NUM* p1, * p2;
+	NUM* p1, * p2,*N4,*N3,*q;
+	N4 = new NUM;
+	N4->next = NULL;
+	N4->prev = NULL;
+	N4->a = 0;
+	N3 = new NUM;
+	N3->next = NULL;
+	N3->prev = NULL;
+	N3->a = 0;
 	long int sz,i;
 	if (COM_NN_D(N1, N2) == 2)
 	{
@@ -258,8 +275,24 @@ NUM* MUL_NN_N(NUM* N1, NUM* N2, NUM *N3)
 		p2 = N2;
 	}
 	sz = size(N2);
+	p2 = end_num(p2);
 	for (i = 0; i < sz; i++)
 	{
+		q = N3;
+		N3 = MUL_ND_N(p1, p2->a);
+		delNUM(q);
+		q = N3;
+		N3 = MUL_Nk_N(N3, i);
+		delNUM(q);
+		q = N4;
+		N4 = ADD_NN_N(N4, N3);
+		delNUM(q);
 
+		if (p2->prev != NULL)
+			p2 = p2->prev;
+		else 
+			break;
 	}
+	return N4;
 }
+

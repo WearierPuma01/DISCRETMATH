@@ -50,3 +50,16 @@ NUM* COPY(NUM* N)
 	p2->next = NULL;
 	return C;
 }
+
+void delNUM(NUM* N)
+{
+	NUM* p,*q;
+	p = N;
+	while (p->next != NULL)
+	{
+		p = p->next;
+		q = p->prev;
+		delete q;
+	}
+	delete p;
+}

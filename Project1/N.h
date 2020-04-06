@@ -3,6 +3,7 @@
 #include <string>
 #include <iostream>
 #include "SIZE.h"
+#include "InputOutLong.h"
 using namespace std;
 
 int COM_NN_D(NUM* N1, NUM* N2);
@@ -12,3 +13,4 @@ NUM* ADD_NN_N(NUM* N1, NUM* N2);
 NUM* SUB_NN_N(NUM* N1, NUM* N2);
 NUM* MUL_ND_N(NUM* N, short int a);
 NUM* MUL_Nk_N(NUM* N, long int a);
+NUM* MUL_NN_N(NUM* N1, NUM* N2);
