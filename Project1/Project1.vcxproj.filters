@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="Z.cpp ADD_ZZ_Z.cpp" />
     <ClCompile Include="InputOutLong.cpp" />
     <ClCompile Include="N.cpp" />
     <ClCompile Include="P.cpp" />
     <ClCompile Include="Q.cpp" />
     <ClCompile Include="SIZE.cpp" />
     <ClCompile Include="Source.cpp" />
+    <ClCompile Include="Z.cpp POZ_ZZ_D.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="InputOutLong.h" />

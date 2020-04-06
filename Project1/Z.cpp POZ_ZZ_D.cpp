@@ -1,12 +1,12 @@
-#include <iostream>  //Сумма двух целых чисел
-#include<algorithm>
-#include<numeric>
-#include "NUM.h"
-using namespace std;
-int main()
+#include "N.h"
+
+//Сумма двух целых чисел
+  int ADD_ZZ_Z(NUM* N1, NUM* N2)
 {
 	setlocale(LC_ALL, "ru");
-	int x, y;
+    NUM* x ,  y;
+    x = N1;
+    y = N2;
 	cout<<"Введите первое число:";
 	cin >> x;
 	cout << "Введите второе число:";
@@ -17,11 +17,12 @@ int main()
 	cout <<"Сумма двух целых чисел = "<< result << endl;
 }
 
+
+
+ int SUB_ZZ_Z(NUM* N1, NUM* N2)
 { // Вычитание двух целых чисел
-#include <iostream>
-#include <string>
-#include <string.h>
-#define MAX 10010
+
+
     using namespace std;
     int main() {
         int a, f = 0;
@@ -39,11 +40,13 @@ int main()
         memset(term_2, 0, sizeof(term_2));
         memset(result, 0, sizeof(result));
 
-        for (int i = str1.size() - 1, j = MAX - 1; i >= 0; i--, j--) {
+        for (int i = str1.size() - 1, j = MAX - 1; i >= 0; i--, j--)
+        {
             term_1[j] = str1[i] - '0';
         }
 
-        for (int i = str2.size() - 1, j = MAX - 1; i >= 0; i--, j--) {
+        for (int i = str2.size() - 1, j = MAX - 1; i >= 0; i--, j--)
+        {
             term_2[j] = str2[i] - '0';
         }
 
@@ -63,5 +66,44 @@ int main()
                 cout << result[i];
             }
         }
+    }
+}
+
+ 
+
+ NUM* POZ_Z_D(NUM* N);
+{   
+    /*
+
+     getSign
+
+     Функция для определения положительности числа. Возвращает: 2 - число положительное,
+     0 - равное нулю, 1 - отрицательное, -1 - ошибка
+
+     Параметры:
+     1) numb - целое число
+
+     Функция возвращает результат типа - int
+
+    */
+    int getSign(NUM numb)
+    {
+        int check = numb.b;
+
+        if (numb.A)
+        {
+            for (int i = 0; i < numb.n && check; ++i)
+                check = *(numb.A + i) == 0;
+            if (check)
+                check = 0;
+            else
+                if (numb.b == 1)
+                    check = 1;
+                else
+                    check = 2;
+        }
+        else
+            check = -1;
+        return check;
     }
 }
