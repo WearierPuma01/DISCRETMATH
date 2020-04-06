@@ -10,3 +10,5 @@ bool NZER_N_B(NUM* N);
 NUM* ADD_1N_N(NUM* N);
 NUM* ADD_NN_N(NUM* N1, NUM* N2);
 NUM* SUB_NN_N(NUM* N1, NUM* N2);
+NUM* MUL_ND_N(NUM* N, short int a);
+NUM* MUL_Nk_N(NUM* N, long int a);

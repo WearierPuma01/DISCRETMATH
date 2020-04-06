@@ -177,9 +177,66 @@ NUM* SUB_NN_N(NUM* N1, NUM* N2)
 	}
 	while (p1->a == 0)
 	{
-		p1 = p1->next;
+		if (p1->next == NULL)
+			break;
+		else
+			p1 = p1->next;
 		delete p1->prev;
 		p1->prev = NULL;
 	}
 	return p1;
 }
+
+NUM* MUL_ND_N(NUM* N, short int a)
+{
+	short int ost=0;
+	NUM* p;
+	p = end_num(N);
+	while (true)
+	{
+		p->a *= a;
+		p->a += ost;
+		ost = p->a / 10;
+		p->a = p->a % 10;
+		if ((ost == 0) && (p->prev == NULL))
+			break;
+		else
+			if (p->prev == NULL)
+			{
+				p->prev = new NUM;
+				p->prev->next = p;
+				p->prev->prev = NULL;
+				p->prev->a = 0;
+				p = p->prev;
+			}
+			else
+				p=p->prev;
+	}
+	while (p->a == 0)
+	{
+		if (p->next == NULL)
+			break;
+		else
+			p = p->next;
+		delete p->prev;
+		p->prev = NULL;
+	}
+	return p;
+}
+
+NUM* MUL_Nk_N(NUM* N, long int a)
+{
+	long int i;
+	NUM* p;
+	p = end_num(N);
+	for (i = 0; i < a; i++)
+	{
+		p->next = new NUM;
+		p->next->prev = p;
+		p->next->next = NULL;
+		p->next->a = 0;
+		p = p->next;
+	}
+	return N;
+}
+
