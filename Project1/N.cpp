@@ -50,8 +50,9 @@ bool NZER_N_B(NUM* N)
 NUM* ADD_1N_N(NUM* N)
 {
 	short int ost = 0;
-	NUM* p;
-	p = end_num(N);
+	NUM* p,*N3;
+	N3 = COPY(N);
+	p = end_num(N3);
 	p->a++;
 	ost = p->a / 10;
 	p->a = p->a % 10;
@@ -83,12 +84,12 @@ NUM* ADD_NN_N(NUM* N1, NUM* N2)
 	NUM* p1, * p2;
 	if (COM_NN_D(N1, N2) == 2)
 	{
-		p1 = N2;
+		p1 = COPY(N2);
 		p2 = N1;
 	}
 	else
 	{
-		p1 = N1;
+		p1 = COPY(N1);
 		p2 = N2;
 	}
 	p1 = end_num(p1);
@@ -134,12 +135,12 @@ NUM* SUB_NN_N(NUM* N1, NUM* N2)
 	NUM* p1, * p2;
 	if (COM_NN_D(N1, N2) == 2)
 	{
-		p1 = N2;
+		p1 = COPY(N2);
 		p2 = N1;
 	}
 	else
 	{
-		p1 = N1;
+		p1 = COPY(N1);
 		p2 = N2;
 	}
 	p1 = end_num(p1);
@@ -190,8 +191,9 @@ NUM* SUB_NN_N(NUM* N1, NUM* N2)
 NUM* MUL_ND_N(NUM* N, short int a)
 {
 	short int ost=0;
-	NUM* p;
-	p = end_num(N);
+	NUM* p,*Np;
+	Np = COPY(N);
+	p = end_num(Np);
 	while (true)
 	{
 		p->a *= a;
@@ -227,8 +229,9 @@ NUM* MUL_ND_N(NUM* N, short int a)
 NUM* MUL_Nk_N(NUM* N, long int a)
 {
 	long int i;
-	NUM* p;
-	p = end_num(N);
+	NUM* p, * Np;
+	Np = COPY(N);
+	p = end_num(Np);
 	for (i = 0; i < a; i++)
 	{
 		p->next = new NUM;
@@ -237,7 +240,7 @@ NUM* MUL_Nk_N(NUM* N, long int a)
 		p->next->a = 0;
 		p = p->next;
 	}
-	return N;
+	return Np;
 }
 
 NUM* MUL_NN_N(NUM* N1, NUM* N2, NUM *N3)
