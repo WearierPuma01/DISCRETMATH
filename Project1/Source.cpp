@@ -139,6 +139,9 @@ int main()
 				output(N3);
 				cout << "\n";
 				break;
+			case 8:
+
+
 			}
 			/*NUM * N1;
 			N1 = new NUM;
