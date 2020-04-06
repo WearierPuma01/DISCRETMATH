@@ -4,11 +4,11 @@ void input(NUM* top) //Функция ввода длинного числа с клавиатуры
 {
 	NUM* p, * pr; //Указатели на предыдущий и текущий элемент 
 	bool sign = 0; // Знак	
-	int i;
+	unsigned int i;
 	string str, s; // str - строка с числом , s - в роли каждого символа
-	cout << "Введите число: ";
+	//cout << "Введите число: ";
 	cin >> str;
-	cout << "\n";
+	//cout << "\n";
 	top->prev = NULL;
 	top->next = NULL;
 	p = top;
@@ -44,7 +44,7 @@ void output(NUM* top) //Функция вывода числа на экран
 {
 	NUM* p;
 	p = top;
-	cout << "Число: ";
+	//cout << "Число: ";
 	while (true)
 	{
 		cout << p->a;
@@ -53,5 +53,5 @@ void output(NUM* top) //Функция вывода числа на экран
 		else
 			p = p->next;
 	}
-	cout << "\n";
+	//cout << "\n";
 }
