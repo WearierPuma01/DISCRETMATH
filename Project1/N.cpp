@@ -1,60 +1,81 @@
-include <iostream>
-#include <string>
-#include "NUM.h"
-#include "InputOutLong.h"
-using namespace std;
-int COM_NN_D(NUM a, NUM b)
+#include "N.h"
+
+
+int COM_NN_D(NUM *N1, NUM *N2)
 {
-	if (a.size > b.size)
-		return 2;
-	else if (b.size > a.size)
+	NUM* p1,*p2;
+	p1 = N1;
+	p2 = N2;
+	if (size(N1) > size(N2)) //Проверка на разность длинн чисел
 		return 1;
-	else
+	else 
+		if (size(N1) < size(N2))  //Проверка на разность длинн чисел
+			return 2;
+		else
+			while (true) // Поразрядное сравнение
+			{
+				if (p1->a > p2->a)
+					return 1;
+				if (p1->a < p2->a)
+					return 2;
+				if (p1->next == NULL)
+					break;
+				else
+				{
+					p1 = p1->next;
+					p2 = p2->next;
+				}	
+			}
+	return 0; // Возврат нуля в случае одинаковых чисел
+}
+
+bool NZER_N_B(NUM* N)
+{
+	NUM* p;
+	p = N;
+	if ((N->a == 0) && (N->next == NULL))
+		return 0;
+	while (true)
 	{
-		for (int i = a.size - 1; i >= 0; i--)
-		{
-			if (a.k[i] > b.k[i])
-				return 2;
-			else if (b.k[i] > a.k[i])
-				return 1;
-		}
+		if (p->a > 0)
+			return 1;
+		if (p->next == NULL)
+			break;
+		else
+			p = p->next;
 	}
 	return 0;
 }
-bool NZER_N_B(NUM a)
+
+NUM* ADD_1N_N(NUM* N)
 {
-	if (a.k[0] == 0 && a.size == 1) 
+	short int ost=0;
+	NUM* p;
+	p = end_num(N);
+	p->a++;
+	ost = p->a / 10;
+	p->a = p->a % 10;
+	while (ost!=0)
 	{
-		return false;
+		if (p->prev == NULL)
+		{
+			p->prev = new NUM;
+			p->prev->a = 0;
+			p->prev->next = p;
+		}
+		p = p->prev;
+		p->a += ost;
+		ost = p->a / 10;
+		p->a = p->a % 10;
 	}
-	return true;
+	while (p->prev != NULL)
+	{
+		p = p->prev;
+	}
+	return p;
 }
-NUM ADD_1N_N(NUM a)
+
+NUM* ADD_NN_N(NUM* N1, NUM* N2)
 {
-	int c = 1;
-	NUM result;
-	result = a;
-	if (result.k[0] != 9)
-	{
-		result.k[0]++;
-	}
-	else
-	{
-		while (c != result.size && result.k[c] == 9) 
-		{
-			result.k[c] = 0;
-			c++;
-		}
-		if (c == result.size)
-		{
-			result.k = resize(result.k, result.size + 1, result.size);
-			result.size++;
-			result.k[result.size - 1] = 1;
-		}
-		else
-		{
-			result.k[k]++;
-		}
-	}
-	return result;
+
 }
