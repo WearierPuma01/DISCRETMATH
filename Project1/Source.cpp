@@ -78,9 +78,9 @@ int main()
 				cout << "Введите число 1:" << "\t";
 				input(N1);
 				cout << "\n";
-				N1 = ADD_1N_N(N1);
+				N3 = ADD_1N_N(N1);
 				cout << "Результат:" << "\t";
-				output(N1);
+				output(N3);
 				cout << "\n";
 				break;
 			case 4:
@@ -106,9 +106,9 @@ int main()
 				cout << "Введите число 2:" << "\t";
 				input(N2);
 				cout << "\n";
-				N1 = SUB_NN_N(N1, N2);
+				N3 = SUB_NN_N(N1, N2);
 				cout << "Результат:" << "\t";
-				output(N1);
+				output(N3);
 				cout << "\n";
 				break;
 			case 6:
@@ -120,9 +120,9 @@ int main()
 				cout << "Введите цифру:" << "\t";
 				cin >> q;
 				cout << "\n";
-				N1=MUL_ND_N(N1, q);
+				N3=MUL_ND_N(N1, q);
 				cout << "Результат:" << "\t";
-				output(N1);
+				output(N3);
 				cout << "\n";
 				break;
 			case 7:
@@ -134,9 +134,9 @@ int main()
 				cout << "Введите степень десяти:" << "\t";
 				cin >> w;
 				cout << "\n";
-				N1 = MUL_Nk_N(N1, w);
+				N3 = MUL_Nk_N(N1, w);
 				cout << "Результат:" << "\t";
-				output(N1);
+				output(N3);
 				cout << "\n";
 				break;
 			}
