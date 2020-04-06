@@ -243,7 +243,23 @@ NUM* MUL_Nk_N(NUM* N, long int a)
 	return Np;
 }
 
-NUM* MUL_NN_N(NUM* N1, NUM* N2)
+NUM* MUL_NN_N(NUM* N1, NUM* N2, NUM *N3)
 {
+	NUM* p1, * p2;
+	long int sz,i;
+	if (COM_NN_D(N1, N2) == 2)
+	{
+		p1 = N2;
+		p2 = N1;
+	}
+	else
+	{
+		p1 = N1;
+		p2 = N2;
+	}
+	sz = size(N2);
+	for (i = 0; i < sz; i++)
+	{
 
+	}
 }
