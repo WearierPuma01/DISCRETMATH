@@ -6,10 +6,10 @@ int COM_NN_D(NUM* N1, NUM* N2)
 	NUM* p1, * p2;
 	p1 = N1;
 	p2 = N2;
-	if (size(N1) > size(N2)) //ѕроверка на разность длинн чисел
+	if (size(N1) > size(N2)) //ѕроверка на разность длинн чисел. ¬озврат 1 если первое число больше
 		return 1;
 	else
-		if (size(N1) < size(N2))  //ѕроверка на разность длинн чисел
+		if (size(N1) < size(N2))  //ѕроверка на разность длинн чисел. ¬озврат 2 если второе число больше
 			return 2;
 		else
 			while (true) // ѕоразр€дное сравнение
@@ -148,7 +148,7 @@ NUM* SUB_NN_N(NUM* N1, NUM* N2)
 	while (true)
 	{
 		p1->a -= ost;
-		if (check_end == 0) // не работает разность одинаковых чисел
+		if (check_end == 0) 
 		{
 			p1->a -= p2->a;
 		}
@@ -296,3 +296,66 @@ NUM* MUL_NN_N(NUM* N1, NUM* N2)
 	return N4;
 }
 
+NUM* SUB_NDN_N(NUM* N1, NUM* N2, short int a)
+{
+	NUM* p1, * p2, * N4, * N3, * q;
+	short int maxer;
+	N4 = new NUM;
+	N4->next = NULL;
+	N4->prev = NULL;
+	N4->a = 0;
+	N3 = new NUM;
+	N3->next = NULL;
+	N3->prev = NULL;
+	N3->a = 0;
+	q = N3;
+	N3 = MUL_ND_N(N2, a);
+	delNUM(q);
+	maxer = COM_NN_D(N1, N3);
+	if (maxer == 2)
+	{
+		N4->a = 01;
+		delNUM(N3);
+	}
+	else
+	{
+		q = N4;
+		N4 = SUB_NN_N(N1, N3);
+		delNUM(q);
+		delNUM(N3);
+	}
+	return N4;
+}
+
+short int DIV_NN_Dk(NUM* N1, NUM* N2)
+{
+	long int k = 0;
+	short int i;
+	NUM* p1, * p2, * N3, * q;
+	N3 = new NUM;
+	N3->next = NULL;
+	N3->prev = NULL;
+	N3->a = 0;
+	if (COM_NN_D(N1, N2) == 2)
+	{
+		p1 = COPY(N2);
+		p2 = COPY(N1);
+	}
+	else
+	{
+		p1 = COPY(N1);
+		p2 = COPY(N2);
+	}
+	k = size(p1)-size(p2);
+	q = p2;
+	p2 = MUL_Nk_N(p2, k);
+	delNUM(q);
+	for (i = 1; N3->a != 01; i++)
+	{
+		q = N3;
+		N3 = SUB_NDN_N(p1, p2, i);
+		delNUM(q);
+	}
+	i-=2;
+	return i;
+}

@@ -153,7 +153,40 @@ int main()
 				output(N3);
 				cout << "\n";
 				break;
-
+			case 9:
+				N1 = new NUM;
+				N2 = new NUM;
+				cout << "¬ведите число 1:" << "\t";
+				input(N1);
+				cout << "\n";
+				cout << "¬ведите число 2:" << "\t";
+				input(N2);
+				cout << "\n";
+				cout << "¬ведите цифру:" << "\t";
+				cin >> a;
+				cout << "\n";
+				N3 = SUB_NDN_N(N1, N2, a);
+				if (N3->a == 01)
+					cout << "–езультат получаетс€ отрицательный!" << "\n";
+				else
+				{
+					cout << "–езультат:" << "\t";
+					output(N3);
+					cout << "\n";
+				}
+				break;
+			case 10:
+				N1 = new NUM;
+				N2 = new NUM;
+				cout << "¬ведите число 1:" << "\t";
+				input(N1);
+				cout << "\n";
+				cout << "¬ведите число 2:" << "\t";
+				input(N2);
+				cout << "\n";
+				a=DIV_NN_Dk(N1, N2);
+				cout << "–езультат:" << "\t" << a << "\n";
+				break;
 
 			}
 			/*NUM * N1;
