@@ -187,7 +187,19 @@ int main()
 				a=DIV_NN_Dk(N1, N2);
 				cout << "–езультат:" << "\t" << a << "\n";
 				break;
-
+			case 11:
+				N1 = new NUM;
+				N2 = new NUM;
+				cout << "¬ведите число 1:" << "\t";
+				input(N1);
+				cout << "\n";
+				cout << "¬ведите число 2:" << "\t";
+				input(N2);
+				cout << "\n";
+				N3 = DIV_NN_N(N1, N2);
+				cout << "–езультат:" << "\t";
+				output(N3);
+				cout << "\n";
 			}
 			/*NUM * N1;
 			N1 = new NUM;

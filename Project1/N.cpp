@@ -314,7 +314,7 @@ NUM* SUB_NDN_N(NUM* N1, NUM* N2, short int a)
 	maxer = COM_NN_D(N1, N3);
 	if (maxer == 2)
 	{
-		N4->a = 01;
+		N4->a = 101;
 		delNUM(N3);
 	}
 	else
@@ -332,10 +332,58 @@ short int DIV_NN_Dk(NUM* N1, NUM* N2)
 	long int k = 0;
 	short int i;
 	NUM* p1, * p2, * N3, * q;
+	if (COM_NN_D(N1, N2) == 2)
+	{
+		p1 = COPY(N2);
+		p2 = COPY(N1);
+		N3 = COPY(N1);
+	}
+	else
+	{
+		p1 = COPY(N1);
+		p2 = COPY(N2);
+		N3 = COPY(N2);
+	}
+	k = size(p1)-size(p2);
+	
+	while (true)
+	{
+		q = N3;
+		N3 = MUL_Nk_N(p2, k);
+		delNUM(q);
+		if (COM_NN_D(p1, N3) == 2)
+			k =k- 1;
+		else
+			break;
+	}
+	p2 = COPY(N3);
+	output(p2);
+	delNUM(N3);
 	N3 = new NUM;
 	N3->next = NULL;
 	N3->prev = NULL;
 	N3->a = 0;
+	for (i = 1; N3->a != 101; i++)
+	{
+		q = N3;
+		
+		N3 = SUB_NDN_N(p1, p2, i);
+		delNUM(q);
+	}
+	i-=2;
+	return i;
+}
+
+NUM* DIV_NN_N(NUM* N1, NUM* N2)
+{
+	long int k = 0;
+	short int i;
+	NUM* p1, * p2, * p3, * N3, * q, *tmp;
+	N3 = new NUM;
+	N3->next = NULL;
+	N3->prev = NULL;
+	N3->a = 0;
+	p3 = N3;
 	if (COM_NN_D(N1, N2) == 2)
 	{
 		p1 = COPY(N2);
@@ -346,16 +394,27 @@ short int DIV_NN_Dk(NUM* N1, NUM* N2)
 		p1 = COPY(N1);
 		p2 = COPY(N2);
 	}
-	k = size(p1)-size(p2);
-	q = p2;
-	p2 = MUL_Nk_N(p2, k);
-	delNUM(q);
-	for (i = 1; N3->a != 01; i++)
+	while (true)
 	{
-		q = N3;
-		N3 = SUB_NDN_N(p1, p2, i);
+		p3->a = DIV_NN_Dk(p1, p2);
+		k = size(p1) - size(p2);
+		tmp = MUL_Nk_N(p2, k);
+		q = p1;
+		p1 = SUB_NDN_N(p1, tmp,p3->a);
 		delNUM(q);
+		delNUM(tmp);
+		if (COM_NN_D(p1, p2) == 2)
+		{
+			break;
+		}
+		else
+		{
+			p3->next = new NUM;
+			p3->next->next = NULL;
+			p3->next->prev = p3;
+			p3->next->a = 0;
+			p3 = p3->next;
+		}
 	}
-	i-=2;
-	return i;
+	return N3;
 }
