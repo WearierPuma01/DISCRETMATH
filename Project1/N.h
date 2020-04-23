@@ -17,3 +17,5 @@ NUM* MUL_NN_N(NUM* N1, NUM* N2);
 NUM* SUB_NDN_N(NUM* N1, NUM* N2, short int a);
 short int DIV_NN_Dk(NUM* N1, NUM* N2);
 NUM* DIV_NN_N(NUM* N1, NUM* N2);
+NUM* MOD_NN_N(NUM* N1, NUM* N2);
+NUM* GCF_NN_N(NUM* N1, NUM* N2);

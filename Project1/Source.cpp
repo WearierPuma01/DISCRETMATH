@@ -200,6 +200,36 @@ int main()
 				cout << "–езультат:" << "\t";
 				output(N3);
 				cout << "\n";
+				break;
+			case 12:
+				N1 = new NUM;
+				N2 = new NUM;
+				cout << "¬ведите число 1:" << "\t";
+				input(N1);
+				cout << "\n";
+				cout << "¬ведите число 2:" << "\t";
+				input(N2);
+				cout << "\n";
+				N3 = MOD_NN_N(N1, N2);
+				cout << "–езультат:" << "\t";
+				output(N3);
+				cout << "\n";
+				break;
+			case 13:
+				N1 = new NUM;
+				N2 = new NUM;
+				cout << "¬ведите число 1:" << "\t";
+				input(N1);
+				cout << "\n";
+				cout << "¬ведите число 2:" << "\t";
+				input(N2);
+				cout << "\n";
+				N3 = GCF_NN_N(N1, N2);
+				cout << "–езультат:" << "\t";
+				output(N3);
+				cout << "\n";
+				break;
+
 			}
 			/*NUM * N1;
 			N1 = new NUM;
