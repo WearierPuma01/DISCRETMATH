@@ -401,7 +401,8 @@ NUM* DIV_NN_N(NUM* N1, NUM* N2)
 		if (COM_NN_D(p1, tmp) == 2)
 		{
 			q = tmp;
-			tmp= MUL_Nk_N(p2, k-1);
+			k--;
+			tmp= MUL_Nk_N(p2, k);
 			delNUM(q);
 		}
 		q = p1;
@@ -420,6 +421,26 @@ NUM* DIV_NN_N(NUM* N1, NUM* N2)
 			p3->next->a = 0;
 			p3 = p3->next;
 		}
+		
+	}
+	if (COM_NN_D(N1, N2) == 2)
+	{
+		p1 = COPY(N2);
+	}
+	else
+	{
+		p1 = COPY(N1);
+	}
+	p1 = end_num(p1);
+	for(i=0;i<k;i++)
+	{
+		p3->next = new NUM;
+		p3->next->next = NULL;
+		p3->next->prev = p3;
+		p3->next->a = 0;
+		p3 = p3->next;
+		if (p1->prev != NULL)
+			p1 = p1->prev;
 	}
 	return N3;
 }
@@ -478,3 +499,26 @@ NUM* GCF_NN_N(NUM* N1, NUM* N2)
 	return p1;
 }
 
+NUM* LCM_NN_N(NUM* N1, NUM* N2)
+{
+	NUM* p1, * p2, * N3, * N4, * q;
+	if (COM_NN_D(N1, N2) == 2)
+	{
+		p1 = COPY(N2);
+		p2 = COPY(N1);
+	}
+	else
+	{
+		p1 = COPY(N1);
+		p2 = COPY(N2);
+	}
+	N3 = GCF_NN_N(p1, p2);
+	N4 = MUL_NN_N(p1, p2);
+	q = p1;
+	p1 = DIV_NN_N(N4, N3);
+	delNUM(q);
+	delNUM(N3);
+	delNUM(N4);
+	delNUM(p2);
+	return(p1);
+}
