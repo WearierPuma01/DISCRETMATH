@@ -63,3 +63,27 @@ void delNUM(NUM* N)
 	}
 	delete p;
 }
+
+bool ifnopozBIG(NUM* N1, NUM* N2)
+{
+	short int a;
+	NUM* p1, * p2,*q;
+	if (N1->a < 0)
+	{
+		p1 = COPY(N1);
+		p2 = COPY(N2);
+	}
+	else
+	{
+		p1 = COPY(N2);
+		p2 = COPY(N1);
+	}
+	q = p1;
+	p1 = ABS_Z_N(p1);
+	delNUM(q);
+	a = COM_NN_D(p1, p2);
+	if (a == 1)
+		return 1;
+	else
+		return 0;
+}

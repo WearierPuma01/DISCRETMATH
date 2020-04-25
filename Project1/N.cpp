@@ -37,7 +37,7 @@ bool NZER_N_B(NUM* N)
 		return 0;
 	while (true)
 	{
-		if (p->a > 0)
+		if (p->a != 0)
 			return 1;
 		if (p->next == NULL)
 			break;
@@ -124,6 +124,15 @@ NUM* ADD_NN_N(NUM* N1, NUM* N2)
 	while (p1->prev != NULL)
 	{
 		p1 = p1->prev;
+	}
+	while (p1->a == 0)
+	{
+		if (p1->next == NULL)
+			break;
+		else
+			p1 = p1->next;
+		delete p1->prev;
+		p1->prev = NULL;
 	}
 	return p1;
 }
